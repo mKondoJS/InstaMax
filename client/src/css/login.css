@@ -34,7 +34,7 @@
 #mobileSplash {
     margin-top: 12px;
     max-width: 410px;
-    background: url('../client/src/assets/img/instamobile.png') no-repeat;
+    background: url('../assets/img/instamobile.png') no-repeat;
 }
 
 #mobilePics {
@@ -43,7 +43,7 @@
     left: 117px;
     height: 430px;
     width: 241px;
-    background: url('../client/src/assets/img/mScreen1.png') no-repeat;
+    background: url('../assets/img/mScreen1.png') no-repeat;
     transition: background 1.5s linear; /* fade on transitions */
 }
 
