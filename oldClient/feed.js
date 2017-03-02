@@ -32,7 +32,7 @@ function getUserInfo() {
                 $('.suggestionBox').append(
                     "<div class='suggestionRow'>" +
                     "<div class='suggestionContent'>" +
-                    "<div class='suggestionPic'><a href='#'><img src='../img/" + user + ".jpg'></a></div>" +
+                    "<div class='suggestionPic'><a href='#'><img src=" + user + "'../client/src/assets/img/.jpg'></a></div>" +
                     "<div class='suggestionNameContainer'><div class='nameBox'>" +
                     "<div class='suggestionName'><a href='#'>" + user + "</a></div>" +
                     "<div class='suggestionFullName'><a href='#'>" + users[user] + "</a></div>" +
@@ -133,7 +133,7 @@ jQuery(document).ready( function() {
                             feedBox.append(
                                 "<div class='feedItem borderedBox'>" +
                                 "<div class='feedHeader'>" +
-                                "<div class='posterPic'><a href='#'><img src='../img/" + posters[index].img + ".jpg'></a></div>" +
+                                "<div class='posterPic'><a href='#'><img src=" + posters[index].img + "'../client/src/assets/img/.jpg'></a></div>" +
                                 "<div class='posterNameContainer'><div class='posterName'><a href='#'>" + posters[index].name + "</a></div></div>" +
                                 "<div class='postTimer'>" + hours + "h</div>" +
                                 "</div>" +
@@ -145,7 +145,7 @@ jQuery(document).ready( function() {
                                 "<div class='commentInputBox'>" +
                                 "<div class='likeThis notLiked'></div>" +
                                 "<input type='text' class='commentInput' id='newComment' maxlength='1000' placeholder='Add a comment...'>" +
-                                "<a href='#'><div class='reportMenu'><img src='../img/elipse.png'></div></a>" +
+                                "<a href='#'><div class='reportMenu'><img src='../client/src/assets/img/elipse.png'></div></a>" +
                                 "</div>" +
                                 "</div>");
                         }
