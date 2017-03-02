@@ -1,0 +1,409 @@
+
+.flex-wrapper, .header, .main, .footer, ul, nav, article, section, div {
+    box-sizing: content-box;
+}
+
+.main {
+    align-items: center;
+}
+
+.header {
+    border-bottom: 1px solid #DBDBDB;
+    background-color: #fff;
+    align-items: center;
+    height: 77px;
+}
+
+.headerContainer {
+    flex-flow: row;
+    max-width: 1000px;
+    width: 100%;
+    padding: 15px 35px;
+    align-items: center;
+}
+
+.userInfo {
+    flex-flow: row nowrap;
+    border-right: 1px solid #DBDBDB;
+    align-items: center;
+}
+
+.userInfo img {
+    height:40px;
+    border-radius: 25px;
+    margin-left: 50px;
+    border: 2px solid #999;
+}
+
+.userName {
+    color: #999;
+    margin: 0 15px;
+}
+
+#instaLogo {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#instaLogo img {
+    height: 30px;
+}
+
+.borderedBox {
+    border: 1px solid #efefef;
+    border-radius: 1px;
+    background-color: #fff;
+}
+
+.searchBox {
+    margin: 0 auto;
+}
+.searchInput {
+    position: relative;
+    margin-top: 7px;
+    height: 30px;
+    background-color: #fafafa;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 5px 0 5px 25px;
+    outline: none;
+}
+
+.searchInputIcon {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    height: 15px;
+    width: 15px;
+    background-image: url(../img/search.png);
+}
+
+nav {
+    flex-flow: row nowrap;
+    align-self: flex-end;
+    margin-right: 30px;
+}
+
+nav img {
+    padding: 0 10px;
+}
+
+.suggestionBox {
+    margin: 60px auto 30px;
+    max-width: 600px;
+    width: 100%;
+    color: #262626;
+}
+
+.suggestionContent a, .suggestionContent a:visited, .suggestionContent a:hover {
+    color: #262626;
+}
+
+.suggestionHeader {
+    height: 50px;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    color: #999;
+    padding: 0 20px;
+    font-size: 11pt;
+}
+
+.suggestionRow {
+    border-bottom:1px solid #DBDBDB;
+}
+
+.suggestionContent {
+    height: 70px;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.suggestionPic {
+    flex: 1 0;
+}
+
+.suggestionPic img {
+    height:40px;
+    border-radius: 25px;
+    margin: 0 8px 0 50px;
+    border: 2px solid #999;
+}
+
+.suggestionNameContainer {
+    flex: 4 0;
+}
+
+.suggestionName {
+    font-size: 15px;
+    max-width: 100px;
+    width: 100%
+}
+
+.suggestionFullName {
+    font-size: 10px;
+    max-width: 100px;
+    width: 100%
+}
+
+.fBtn {
+    width: 100px;
+    border-radius: 3px;
+    padding: 4px 0;
+    font-size: 12pt;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.followButton {
+    color: #3897F0;
+    border: 1px solid #3897F0;
+    background-color: #fff;
+}
+
+.followedButton {
+    color: #fff;
+    border: 1px solid #70C050;
+    background-color: #70C050;
+}
+a, a:hover, a:visited {
+    color: #3897F0;
+    text-decoration: none;
+}
+
+.feedBox {
+    max-width: 600px;
+    width: 100%;
+}
+
+.feedItem {
+    margin: 60px auto 30px;
+    width: 100%;
+    color: #262626;
+}
+
+.feedHeader {
+    height: 70px;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: #999;
+    padding: 0 20px;
+    font-size: 11pt;
+}
+
+.feedHeader a, .feedHeader a:visited {
+    color: #262626;
+}
+
+.posterPic {
+    margin-left: -35px;
+}
+.posterPic img {
+    height:50px;
+    border-radius: 25px;
+    margin: 0 8px 0 50px;
+    border: 2px solid #999;
+}
+
+.posterNameContainer {
+    flex: 3 0;
+}
+
+.posterName {
+    width: 100%;
+    max-width: 100px;
+}
+
+.postTimer {
+    color: #999;
+    font-size: 12pt;
+}
+
+.feedImg {
+    display: block;
+    width:inherit;
+    border-top: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.feedImg img {
+    height: inherit;
+    width: inherit;
+}
+
+.imgCommentBox {
+    padding: 17px 17px 0;
+}
+
+.likes {
+    flex-flow: row nowrap;
+    margin-bottom: 17px;
+}
+
+.likeCount {
+    margin-right: 3px;
+}
+
+.likeThis {
+    background-image: url('../img/favorite.png');
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    margin-left: 17px;
+    cursor: pointer;
+}
+
+.liked {
+    background-image: url('../img/favoriteRed.png');
+}
+
+.imgComments {
+    border-bottom: 1px solid #DBDBDB;
+    font-size: 11pt;
+}
+
+.imgComment {
+    word-wrap: break-word;
+}
+
+.imgComment p {
+    margin: 0 0 7px;
+}
+
+.commentInputBox {
+    min-height: 50px;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding-right: 17px;
+}
+
+.commentInput {
+    flex: 1 0;
+    border: none;
+    margin-left: 10px;
+    outline: none;
+    font-size: 14pt;
+}
+
+.textEntered {
+    font-size: 10pt;
+}
+
+.commenterName {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.loadingSpinner {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    background-size: 100%;
+    height: 38px;
+    margin-top: 20px;
+    width: 38px;
+    background-image: url('../img/spinner.png');
+    animation: spin8 .8s steps(8) infinite;
+}
+
+li {
+    list-style: none;
+    margin-left: 21px;
+}
+
+
+@media only screen and (min-width: 1px) and ( max-width : 479px) {
+    .searchBox {
+        display: none;
+    }
+
+    nav {
+        align-self: center;
+    }
+
+    footer ul {
+        flex-flow: row wrap;
+        max-width: 350px;
+    }
+    .footerLinks {
+        flex-flow: row wrap;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+    .searchBox {
+        display: none;
+    }
+
+    nav {
+        align-self: center;
+    }
+
+    footer ul {
+        flex-flow: row wrap;
+        max-width: 350px;
+    }
+    .footerLinks {
+        flex-flow: row wrap;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px){
+
+    nav {
+        align-self: flex-end;
+    }
+
+    footer ul {
+        flex-flow: row wrap;
+        max-width: 350px;
+    }
+    .footerLinks {
+        flex-flow: row wrap;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) and (max-width : 1199px){
+
+    nav {
+        align-self: flex-end;
+    }
+
+    footer ul {
+        flex-flow: row nowrap;
+        max-width: 980px;
+    }
+    .footerLinks {
+        flex-flow: row nowrap;
+        margin-left: 50px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+    nav {
+        align-self: flex-end;
+    }
+
+    footer ul {
+        flex-flow: row nowrap;
+        max-width: 980px;
+    }
+    .footerLinks {
+        flex-flow: row nowrap;
+        margin: 0 auto;
+    }
+}

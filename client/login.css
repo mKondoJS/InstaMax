@@ -1,0 +1,272 @@
+
+
+
+
+.flex-wrapper, .main, .loginBox, .footer, ul, article, section, div {
+    display: flex; /* This sets us up to use flex */
+    flex-flow: column; /* We'll stacking by default */
+    flex-shrink: 0;
+    align-items: stretch;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.main, .splashBox, .loginBox {
+    flex: 1 1 100%; /* flex-grow flex-shrink flex-basis */
+}
+
+.splashWrapper {
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px auto 0;
+    max-width: 935px;
+    width: 100%;
+}
+
+.splashBox {
+    height: 600px;
+    align-self: center;
+}
+
+#mobileSplash {
+    margin-top: 12px;
+    max-width: 410px;
+    background: url('../img/instamobile.png') no-repeat;
+}
+
+#mobilePics {
+    position: relative;
+    top: 85px;
+    left: 117px;
+    height: 430px;
+    width: 241px;
+    background: url('../img/mScreen1.png') no-repeat;
+    transition: background 1.5s linear; /* fade on transitions */
+}
+
+#loginSplash {
+    margin-top: 12px;
+    max-width: 350px;
+}
+
+.borderedBox {
+    border: 1px solid #efefef;
+    border-radius: 1px;
+    background-color: #fff;
+}
+
+#loginBox {
+    height: 315px;
+    max-width: 355px;
+    margin: 60px 0 10px;
+    padding: 10px 0;
+}
+
+#instaLogo {
+    width: 170px;
+    margin: 19px auto 5px;
+}
+
+.loginInput {
+    width: 260px !important;
+    margin-bottom: 5px;
+    margin-left: 46px;
+    height: 30px;
+    background-color: #FAFFBD;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 5px;
+    outline: none;
+}
+
+#loginText {
+    font-size: 10px;
+    color: red;
+    max-width: 310px;
+    margin: 0 auto
+}
+
+#loginText ul {
+    list-style: circle;
+}
+
+#pwLookup {
+    position: absolute;
+    left: 250px;
+    top: 7px;
+    font-size: 10pt;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.btnLogin {
+    height: 32px;
+    width: 260px !important;
+    margin: 5px 46px;
+    line-height: 12px;
+    color: white;
+    background-color: #3897F0;
+    border: none;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.divider {
+    flex-direction: row;
+    margin: 0 45px;
+    align-items: center;
+}
+.miniHr {
+    flex: 1 0;
+    width: 40px;
+    height: 1px;
+    background-color: #999;
+}
+
+#orText {
+    font-size: 13px;
+    margin: 10px;
+    color: #999;
+}
+
+.fbLogin {
+    display: flex;
+    height: 32px;
+    margin: 5px 46px;
+    line-height: 12px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+#fbLink {
+    margin: 0 16px 0 42px;
+    align-self: center;
+}
+
+#fbLinkText {
+    align-self: center;
+    font-size: 15px;
+    color: #003569;
+}
+
+#signUpBox {
+    height: 80px;
+    margin: 30px 0 0;
+    padding: 15px 0 0 73px;
+    font-size: 14px;
+    color: #262626;
+}
+
+#appBox {
+    flex-flow: column;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+#appBox p {
+    margin: 20px auto 10px;
+    font-size: 14px;
+    color: #262626;
+}
+
+#appLinks {
+    flex-flow: row nowrap;
+}
+
+.appLink {
+    flex: 1 0;
+    margin-left: 10px;
+}
+
+.appLink img {
+    width: 130px;
+}
+
+
+@media only screen and (min-width: 1px) and ( max-width : 479px) {
+    #mobileSplash {
+        display: none;
+    }
+    footer ul {
+        flex-flow: row wrap;
+        max-width: 350px;
+    }
+    .footerLinks {
+        flex-flow: row wrap;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+    #mobileSplash {
+        display: none;
+    }
+    footer ul {
+        flex-flow: row wrap;
+        max-width: 350px;
+    }
+    .footerLinks {
+        flex-flow: row wrap;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px){
+    #mobileSplash {
+        display: none;
+    }
+    footer ul {
+        flex-flow: row wrap;
+        max-width: 350px;
+    }
+    .footerLinks {
+        flex-flow: row wrap;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) and (max-width : 1199px){
+    #mobileSplash {
+        display: flex;
+    }
+    footer ul {
+        flex-flow: row nowrap;
+        max-width: 980px;
+    }
+    .footerLinks {
+        flex-flow: row nowrap;
+        margin-left: 50px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    #mobileSplash {
+        display: flex;
+    }
+    footer ul {
+        flex-flow: row nowrap;
+        max-width: 980px;
+    }
+    .footerLinks {
+        flex-flow: row nowrap;
+        margin: 0 auto;
+    }
+}

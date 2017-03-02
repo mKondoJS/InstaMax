@@ -1,0 +1,58 @@
+body {
+    background-color: #fafafa;
+    font-family: "Ubuntu", "Helvetica Nueue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-wrapper, body, html {
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+}
+
+.flex-wrapper, .header, .main, .footer, ul, nav, article, section, div {
+    display: flex; /* This sets us up to use flex */
+    flex-flow: column; /* We'll stacking by default */
+    flex-shrink: 0;
+    align-items: stretch;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+footer {
+    height: 50px;
+    margin: 70px;
+    flex-flow: row;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+footer ul {
+    justify-content: center;
+    margin: 0 auto;
+    line-height: 23px;
+}
+
+li {
+    list-style: none;
+    margin-left: 21px;
+}
+
+.footerLinks {
+    flex-flow: row;
+    max-width: 935px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.copyright {
+    color: #999;
+    align-items: center;
+    line-height: 23px;
+}
