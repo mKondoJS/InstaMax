@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>INSTAVUE</p>
   </div>
 </template>
 
