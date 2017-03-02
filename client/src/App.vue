@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>instaMax</p>
+    <p>INSTAVUE</p>
   </div>
 </template>
 
