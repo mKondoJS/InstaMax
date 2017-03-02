@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>instaMax</p>
   </div>
 </template>
 
@@ -7,7 +8,7 @@
   // import components here
 
   export default {
-    computed: {
+/*    computed: {
 
     },
     methods: {
@@ -15,7 +16,7 @@
     },
     components: {
 
-    }
+    }*/
   }
 </script>
 
