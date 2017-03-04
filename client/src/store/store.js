@@ -9,9 +9,9 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    username,
-    password,
-    userImage: 'string',
+    username: '',
+    password: '',
+    // userImage: 'string',
     users: {
       'frodo'    : 'Frodo Baggins',
       'samwise'  : 'Samwise Gamgee',
@@ -25,11 +25,25 @@ export const store = new Vuex.Store({
       3 : { name: 'OneDoesNotSimply', img: 'boromir' },
     },
   },
-  getters,
-  mutations,
-  actions,
-  modules: {
-    
+  getters: {
+    getUsername: state => state.username,
   },
+  mutations: {
+    setUsername: (state, payload) => {
+      state.username = payload;
+    },
+    setPassword: (state, payload) => {
+      state.password = payload;
+    }
+  },
+  actions: {
+    commitUsernameAndPassword: ({ commit }, payload) => {
+      console.log('in action', payload, $('#user').val());
+      commit('setUsername', $('#user').val());
+      commit('setPassword', $('#password').val());
+    }
+  },
+  modules: {
 
+  },
 });
