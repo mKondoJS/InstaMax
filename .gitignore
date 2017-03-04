@@ -1,4 +1,5 @@
 node_modules
 .idea
+client/npm-debug.log
 dist
 yarn.lock

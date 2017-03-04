@@ -8,7 +8,7 @@
   // import components here
 
   export default {
-    computed: {
+/*    computed: {
 
     },
     methods: {
@@ -16,7 +16,7 @@
     },
     components: {
 
-    }
+    }*/
   }
 </script>
 
