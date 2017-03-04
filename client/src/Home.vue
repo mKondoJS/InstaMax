@@ -2,7 +2,7 @@
   <div class="flex-wrapper">
     <div class="container">
       <main class="main">
-        <!--<max-Login-Box></max-Login-Box>-->
+        <max-Login-Box></max-Login-Box>
         <max-Footer></max-Footer>
       </main>
     </div>
@@ -13,8 +13,7 @@
   // import components here
 
   import Footer from './components/Footer.vue';
-//   import LoginBox from './components/LoginBox.vue'
-
+  import LoginBox from './components/LoginBox.vue';
 
   export default {
     computed: {
@@ -25,7 +24,7 @@
     },
     components: {
       maxFooter: Footer,
-    //   maxLoginBox: LoginBox
+      maxLoginBox: LoginBox
     }
   }
 </script>
