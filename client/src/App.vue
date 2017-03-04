@@ -32,6 +32,7 @@
       maxFooter: Footer,
       maxNav: Nav
     }
+
   }
 </script>
 
