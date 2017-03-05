@@ -14,8 +14,7 @@
                                     <div id="pwLookup"><a href="#">Forgot?</a></div>
                                 </div>
                             <div id="loginText"></div>
-                            <button id="loginBtn" type="button" class="btnLogin" @click="commitUsernameAndPassword">Log In</button>
-                            <button type="submit"></button>
+                            <button id="loginBtn" type="submit" class="btnLogin" @click="commitUsernameAndPassword">Log In</button>
                             <div class="divider">
                                 <span class="miniHr"></span><span id="orText">OR</span><span class="miniHr"></span>
                             </div>
