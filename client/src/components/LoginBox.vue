@@ -6,7 +6,7 @@
                 </section>
                 <section id="loginSplash" class="splashBox">
                     <div id="loginBox" class="borderedBox">
-                        <div id="instaLogo"><img src="../assets/img/instagram156x52.png"></div>
+                        <div id="instaLogo"><img src="../assets/img/Instamax235x52.png"></div>
                         <form id="loginForm" action="feed.html" method="get">
                             <input type="text" class="loginInput" id="user" placeholder="Username">
                                 <div style="position: relative">
