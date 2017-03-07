@@ -22,7 +22,7 @@
             </div>
             <div class='imgComments'>
               <ul v-for="comment in comments">
-                <li class="imgComment"><span class='commenterName'>iNeedAUsername </span>{{ comment }}</li>
+                <li class="imgComment"><span class='commenterName'>{{ getUsername }} </span>{{ comment }}</li>
               </ul>
             </div>
         </div>
@@ -40,7 +40,6 @@
   import store from '../store/store';
   import { mapGetters } from 'vuex';
   import { mapActions } from 'vuex';
-  import { mapState } from 'vuex';
 
   export default {
     props: {
@@ -64,7 +63,6 @@
         feedImg: '',
         likes: this.getRandom(1, 100),
         timer: this.getRandom(1,23),
-        feedItems: null,
         poster: this.getPoster(),
         comments: [],
       }
