@@ -8,13 +8,13 @@
                     <div id="loginBox" class="borderedBox">
                         <div id="instaLogo"><img src="../assets/img/Instamax235x52.png"></div>
                         <form id="loginForm" action="feed.html" method="get">
-                            <input type="text" class="loginInput" id="user" placeholder="Username">
+                            <input type="text" class="loginInput" id="user" v-on:focus="slideWarningUp" placeholder="Username">
                                 <div style="position: relative">
-                                    <input type="password" class="loginInput" id="password" placeholder="Password">
+                                    <input type="password" class="loginInput" v-on:focus="slideWarningUp" id="password" placeholder="Password">
                                     <div id="pwLookup"><a href="#">Forgot?</a></div>
                                 </div>
                             <div id="loginText"></div>
-                            <button id="loginBtn" type="submit" class="btnLogin" @click="commitUsernameAndPassword">Log In</button>
+                            <button id="loginBtn" type="submit" class="btnLogin" @click="validateUser">Log In</button>
                             <div class="divider">
                                 <span class="miniHr"></span><span id="orText">OR</span><span class="miniHr"></span>
                             </div>
@@ -42,6 +42,7 @@
 
 <script>
   import {mapActions} from 'vuex';
+  import {mapGetters} from 'vuex';
   import { store } from './../store/store.js';
 
   export default {
@@ -52,7 +53,7 @@
     },
     methods: {
       ...mapActions([
-      'commitUsernameAndPassword',
+        'commitUsernameAndPassword',
       ]),
       startMobileImgLoop() {
         console.log('in startMobileImgLoop');
@@ -69,10 +70,32 @@
           $("#mobilePics").css('background-image' , 'url(' + img + ')');
         }
       },
+      slideWarningUp: function() {
+        $('#loginText').slideUp();
+      },
+      validateUser: function(event) {
+        event.preventDefault();
+        let user = $('#user').val();
+        let password = $('#password').val();
+        if (store.state.users.hasOwnProperty(user) && store.state.users[user].password === password) {
+          this.commitUsernameAndPassword();
+          $('#loginForm').submit();
+        } else {
+          $('#loginText')[0].innerHTML = 'Something went wrong, try again';
+          $('#loginText').slideDown();
+        }
+      },
+    },
+    computed: {
+      ...mapGetters([
+        'getUsername',
+        'getPassword',
+      ]),
     },
     mounted() {
       console.log('In mounted');
       this.startMobileImgLoop();
+      console.log(getUsername());
     }
   }
 </script>

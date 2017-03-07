@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate'
 
 import actions from './actions';
 import getters from './getters';
@@ -13,17 +14,16 @@ export const store = new Vuex.Store({
     password: '',
     randomPoster: 0,
     feedUrls: null,
-
-    // userImage: 'string',
     users: {
-      frodo: 'Frodo Baggins',
-      samwise: 'Samwise Gamgee',
-      meriadoc: 'Meriadoc Brandybuck',
-      pippin: 'Pippin Took',
+      frodo: {fullName: 'Frodo Baggins', password: 'baggins'},
+      samwise: {fullName: 'Samwise Gamgee', password: 'gamgee'},
+      meriadoc: {fullName: 'Meriadoc Brandybuck', password: 'brandybuck'},
+      pippin: {fullName: 'Pippin Took', password: 'took'}
     },
   },
   getters: {
     getUsername: state => state.username,
+    getPassword: state => state.username,
     getPoster: state => state.posters[Math.floor(Math.random() * state.posters.length)],
     getPosterImg: state => './client/src/assets/img/' + state.posters[state.randomPoster].img + '.jpg',
     getPosterName: state => state.posters[state.randomPoster].name,
@@ -50,15 +50,10 @@ export const store = new Vuex.Store({
   },
   actions: {
     commitUsernameAndPassword: ({ commit }, payload) => {
-      console.log('in action', payload, $('#user').val());
-      commit('setUsername', $('#user').val());
-      commit('setPassword', $('#password').val());
-    },
-
-    commitRandomPoster: ({ commit }, payload) => {
-      const poster = Math.floor(Math.random() * state.posters.length);
-      console.log('CommitRandomPoster', poster);
-      commit('setRandomPoster', poster);
+      let user = $('#user').val();
+      let password = $('#password').val();
+      commit('setUsername', user);
+      commit('setPassword', password);
     },
 
     commitFeedUrls: ({ commit }, payload) => {
@@ -69,4 +64,5 @@ export const store = new Vuex.Store({
   modules: {
 
   },
+  plugins: [createPersistedState()],
 });
