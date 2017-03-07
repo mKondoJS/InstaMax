@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
 import actions from './actions';
 import getters from './getters';
@@ -16,14 +17,16 @@ export const store = new Vuex.Store({
 
     // userImage: 'string',
     users: {
-      frodo: 'Frodo Baggins',
-      samwise: 'Samwise Gamgee',
-      meriadoc: 'Meriadoc Brandybuck',
-      pippin: 'Pippin Took',
+      frodo: { fullName: 'Frodo Baggins', password: 'baggins' },
+      samwise: { fullName: 'Samwise Gamgee', password: 'gamgee' },
+      meriadoc: { fullName: 'Meriadoc Brandybuck', password: 'brandybuck' },
+      pippin: { fullName: 'Pippin Took', password: 'took' },
     },
   },
   getters: {
+    getUserFullName: state => state.users[state.username].fullName,
     getUsername: state => state.username,
+    getUsers: state => state.users,
     getPoster: state => state.posters[Math.floor(Math.random() * state.posters.length)],
     getPosterImg: state => './client/src/assets/img/' + state.posters[state.randomPoster].img + '.jpg',
     getPosterName: state => state.posters[state.randomPoster].name,
@@ -62,11 +65,12 @@ export const store = new Vuex.Store({
     },
 
     commitFeedUrls: ({ commit }, payload) => {
-      console.log("commitFeedUrls");
+      console.log('commitFeedUrls');
       commit('setFeedUrls', payload);
     },
   },
   modules: {
 
   },
+  plugins: [createPersistedState()],
 });

@@ -22,7 +22,7 @@
             </div>
             <div class='imgComments'>
               <ul v-for="comment in comments">
-                <li class="imgComment"><span class='commenterName'>iNeedAUsername </span>{{ comment }}</li>
+                <li class="imgComment"><span class='commenterName'> {{ getUsername }} </span>{{ comment }}</li>
               </ul>
             </div>
         </div>
