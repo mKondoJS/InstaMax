@@ -2,7 +2,7 @@
     <header class="header">
             <div class="headerContainer">
                 <div class="userInfo">
-                    <img src="../assets/img/profile.png">
+                    <img :src='userImg'>
                     <span class="userName"> {{ getUsername }} </span>
                 </div>
                 <div id="instaLogo"><a href="index.html"><img src="../assets/img/Instamax235x52.png"></a></div>
@@ -26,7 +26,14 @@ import { mapGetters } from 'vuex';
         computed: {
             ...mapGetters([
                 'getUsername'
-            ])
+            ]),
+            userImg: function() {
+              if(this.getUsername) {
+                return './client/src/assets/img/' + this.getUsername + '.jpg';
+              } else {
+                return './client/src/assets/img/profile.png';
+              }
+            },
         }
 
 
