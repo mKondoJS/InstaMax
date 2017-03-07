@@ -12,7 +12,6 @@ export const store = new Vuex.Store({
   state: {
     username: '',
     password: '',
-    randomPoster: 0,
     feedUrls: null,
 
     // userImage: 'string',
@@ -27,12 +26,8 @@ export const store = new Vuex.Store({
     getUserFullName: state => state.users[state.username].fullName,
     getUsername: state => state.username,
     getUsers: state => state.users,
-    getPoster: state => state.posters[Math.floor(Math.random() * state.posters.length)],
-    getPosterImg: state => './client/src/assets/img/' + state.posters[state.randomPoster].img + '.jpg',
-    getPosterName: state => state.posters[state.randomPoster].name,
     getFeedUrls: state => state.feedUrls,
     getFeedUrl: state => state.feedUrls[Math.floor(Math.random() * state.feedUrls.length)],
-    getRandomPoster: state => state.randomPoster,
   },
   mutations: {
     setUsername: (state, payload) => {
@@ -41,10 +36,6 @@ export const store = new Vuex.Store({
 
     setPassword: (state, payload) => {
       state.password = payload;
-    },
-
-    setRandomPoster: (state, payload) => {
-      state.randomPoster = payload;
     },
 
     setFeedUrls: (state, payload) => {
@@ -56,12 +47,6 @@ export const store = new Vuex.Store({
       console.log('in action', payload, $('#user').val());
       commit('setUsername', $('#user').val());
       commit('setPassword', $('#password').val());
-    },
-
-    commitRandomPoster: ({ commit }, payload) => {
-      const poster = Math.floor(Math.random() * state.posters.length);
-      console.log('CommitRandomPoster', poster);
-      commit('setRandomPoster', poster);
     },
 
     commitFeedUrls: ({ commit }, payload) => {

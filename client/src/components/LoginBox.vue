@@ -47,7 +47,7 @@
   export default {
     data() {
       return {
-        loopMobileImg: this.mobileImageCreator()
+       loopMobileImg: this.mobileImageCreator()
       }
     },
     methods: {
