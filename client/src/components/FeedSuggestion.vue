@@ -12,7 +12,7 @@
                                 <a href='#'> {{ user }} </a>
                             </div>
                         <div class='suggestionFullName'>
-                            <a href='#'> {{ user.fullName }} </a></div>
+                            <a href='#'> {{ userFullName[user].fullName }} </a></div>
                         </div>
                     </div>
                     <button :id='idx' class='fBtn followButton' @click='toggleFollow'>Follow</button>
@@ -31,6 +31,7 @@
                 userNames: Object.keys(store.state.users).filter((user) => {
                     return user !== store.state.username;
                 }),
+                userFullName: store.state.users,
             }
         },
         computed: {
@@ -55,7 +56,6 @@
             btn.toggleClass('followButton');
             btn.toggleClass('followedButton');
           }
-
         }
       }
     
