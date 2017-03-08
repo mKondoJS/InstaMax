@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
 import actions from './actions';
 import getters from './getters';
@@ -18,12 +19,13 @@ export const store = new Vuex.Store({
       frodo: { fullName: 'Frodo Baggins', password: 'baggins' },
       samwise: { fullName: 'Samwise Gamgee', password: 'gamgee' },
       meriadoc: { fullName: 'Meriadoc Brandybuck', password: 'brandybuck' },
-      pippin: { fullName: 'Pippin Took', password: 'took' }
+      pippin: { fullName: 'Pippin Took', password: 'took' },
     },
   },
   getters: {
-    getUsername: state => state.username,
     getUserFullName: state => state.users[state.username].fullName,
+    getUsername: state => state.username,
+    getUsers: state => state.users,
     getFeedUrls: state => state.feedUrls,
     getFeedUrl: state => state.feedUrls[Math.floor(Math.random() * state.feedUrls.length)],
   },
@@ -48,11 +50,12 @@ export const store = new Vuex.Store({
     },
 
     commitFeedUrls: ({ commit }, payload) => {
-      console.log("commitFeedUrls");
+      console.log('commitFeedUrls');
       commit('setFeedUrls', payload);
     },
   },
   modules: {
 
   },
+  plugins: [createPersistedState()],
 });
