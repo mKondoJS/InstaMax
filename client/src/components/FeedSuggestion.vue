@@ -2,17 +2,17 @@
     <article class="suggestionBox borderedBox">
         <div class="suggestionRow">
             <div class="suggestionHeader">SUGGESTIONS FOR YOU<a href="#">See All  <span style="color:#999">></span></a></div>
-                <div class='suggestionContent' v-for="user in users">
+                <div class='suggestionContent' v-for="user in userNames">
                     <div class='suggestionPic'>
-                         <a href='#'><img :src='profilePic'></a>
+                         <a href='#'><img :src='profilePic(user)'></a>
                     </div>
                     <div class='suggestionNameContainer'>
                         <div class='nameBox'>
                             <div class='suggestionName'>
                                 <a href='#'> {{ user }} </a>
-                            </div>
+                            </div> 
                         <div class='suggestionFullName'>
-                            <a href='#'> {{ user.fullName }} </a></div>
+                            <a href='#'> {{ userFullNames[user].fullName }} </a></div>
                         </div>
                     </div>
                     <button class='fBtn followButton'>Follow</button>
@@ -28,9 +28,10 @@
     export default {
         data() {
             return {
-                users: Object.keys(store.state.users).filter((user) => {
+                userNames: Object.keys(store.state.users).filter((user) => {
                     return user !== store.state.username;
                 }),
+                userFullNames: store.state.users,
             }
         },
         computed: {
@@ -38,11 +39,13 @@
             'getUsername',
             'getUserFullName',
             'getUsers',
-            ]),
-            profilePic: function() {
-                return './client/src/assets/img/' +  + '.jpg';
-            },
+          ]),
         },
+        methods: {
+          profilePic: function(user) {
+            return './client/src/assets/img/' + user + '.jpg';
+          },
+        }
       }
     
 </script>
