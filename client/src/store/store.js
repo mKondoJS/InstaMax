@@ -13,8 +13,6 @@ export const store = new Vuex.Store({
     username: '',
     password: '',
     feedUrls: null,
-
-    // userImage: 'string',
     users: {
       frodo: { fullName: 'Frodo Baggins', password: 'baggins' },
       samwise: { fullName: 'Samwise Gamgee', password: 'gamgee' },
@@ -25,6 +23,7 @@ export const store = new Vuex.Store({
   getters: {
     getUserFullName: state => state.users[state.username].fullName,
     getUsername: state => state.username,
+    getPassword: state => state.username,
     getUsers: state => state.users,
     getFeedUrls: state => state.feedUrls,
     getFeedUrl: state => state.feedUrls[Math.floor(Math.random() * state.feedUrls.length)],
@@ -44,9 +43,10 @@ export const store = new Vuex.Store({
   },
   actions: {
     commitUsernameAndPassword: ({ commit }, payload) => {
-      console.log('in action', payload, $('#user').val());
-      commit('setUsername', $('#user').val());
-      commit('setPassword', $('#password').val());
+      let user = $('#user').val();
+      let password = $('#password').val();
+      commit('setUsername', user);
+      commit('setPassword', password);
     },
 
     commitFeedUrls: ({ commit }, payload) => {
