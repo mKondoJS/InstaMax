@@ -2,6 +2,7 @@
     <article class="suggestionBox borderedBox">
         <div class="suggestionRow">
             <div class="suggestionHeader">SUGGESTIONS FOR YOU<a href="#">See All  <span style="color:#999">></span></a></div>
+
                 <div class='suggestionContent' v-for="(user,idx) in userNames">
                     <div class='suggestionPic'>
                          <a href='#'><img :src='profilePic(user)'></a>
@@ -10,7 +11,7 @@
                         <div class='nameBox'>
                             <div class='suggestionName'>
                                 <a href='#'> {{ user }} </a>
-                            </div>
+                            </div> 
                         <div class='suggestionFullName'>
                             <a href='#'> {{ userFullName[user].fullName }} </a></div>
                         </div>
