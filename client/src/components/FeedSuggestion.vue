@@ -2,7 +2,8 @@
     <article class="suggestionBox borderedBox">
         <div class="suggestionRow">
             <div class="suggestionHeader">SUGGESTIONS FOR YOU<a href="#">See All  <span style="color:#999">></span></a></div>
-                <div class='suggestionContent' v-for="user in userNames">
+
+                <div class='suggestionContent' v-for="(user,idx) in userNames">
                     <div class='suggestionPic'>
                          <a href='#'><img :src='profilePic(user)'></a>
                     </div>
@@ -15,7 +16,7 @@
                             <a href='#'> {{ userFullNames[user].fullName }} </a></div>
                         </div>
                     </div>
-                    <button class='fBtn followButton'>Follow</button>
+                    <button :id='idx' class='fBtn followButton' @click='toggleFollow'>Follow</button>
                 </div>
         </div>
     </article>
@@ -39,12 +40,23 @@
             'getUsername',
             'getUserFullName',
             'getUsers',
-          ]),
+            ]),
         },
         methods: {
           profilePic: function(user) {
-            return './client/src/assets/img/' + user + '.jpg';
+              return './client/src/assets/img/' + user + '.jpg';
           },
+          toggleFollow: function(e) {
+            let btn = $('#' + e.srcElement.id);
+            if (btn.text() === 'Follow') {
+              btn.text('Followed');
+            }
+            else {
+              btn.text('Follow');
+            }
+            btn.toggleClass('followButton');
+            btn.toggleClass('followedButton');
+          }
         }
       }
     
