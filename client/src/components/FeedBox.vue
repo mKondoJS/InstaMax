@@ -22,13 +22,13 @@
             </div>
             <div class='imgComments'>
               <ul v-for="comment in comments">
-                <li class="imgComment"><span class='commenterName'>{{ getUsername }} </span>{{ comment }}</li>
+                <li class="imgComment"><span class='commenterName'>{{ username }} </span>{{ comment }}</li>
               </ul>
             </div>
         </div>
         <div class='commentInputBox'>
             <div :id="_uid" class='likeThis notLiked' @click="likeHandler"></div>
-            <input type='text' class='commentInput' id='newComment' maxlength='1000' @keyup.enter="setInput" placeholder='Add a comment...'>
+            <input type='text' class='commentInput' id='newComment' maxlength='1000' @keyup.enter="postComment" placeholder='Add a comment...'>
             <a href='#'><span class='reportMenu'><img src="../assets/img/elipse.png"></span></a>
         </div>
     </div>
@@ -37,29 +37,12 @@
 
 <script>
 
-  import store from '../store/store';
-  import { mapGetters } from 'vuex';
-  import { mapActions } from 'vuex';
+ // import store from '../overvue/store';
 
   export default {
-    props: {
-      url: String,
-    },
-    computed: {
-      ...mapGetters([
-        'getFeedImg',
-        'getFeedUrl',
-        'getUsername',
-      ]),
-     posterImg: function() {
-        return './client/src/assets/img/' + this.poster + '.jpg';
-     },
-     posterName: function() {
-        return this.poster;
-     }
-    },
     data () {
       return {
+        //username: this.$store.state.username,
         feedImg: '',
         likes: this.getRandom(1, 100),
         timer: this.getRandom(1,23),
@@ -67,8 +50,21 @@
         comments: [],
       }
     },
+    props: {
+      url: String,
+    },
+    computed: {
+     posterImg: function() {
+        return './client/src/assets/img/' + this.poster + '.jpg';
+     },
+     posterName: function() {
+        return this.poster;
+     },
+     username: function() {
+       return this.$store.state.username;
+     }
+    },
     methods: {
-      ...mapActions(['commitRandomPoster']),
       getRandom(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -92,9 +88,10 @@
           'OneDoesNotSimply',
         ][Math.floor(Math.random() * 4)]
       },
-      setInput(e) {
+      postComment(e) {
         console.log('val',e.srcElement.value);
         if(e.srcElement.value.length) {
+          this.username = store.state.username;
           this.comments.push(e.srcElement.value);
           e.srcElement.value = '';
         }

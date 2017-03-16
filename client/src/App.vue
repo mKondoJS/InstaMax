@@ -4,7 +4,7 @@
       <max-nav></max-nav>
       <main class="main">
         <max-Feed-Suggestion />
-        <div class="feedBox" v-for="feedItem in getFeedUrls">
+        <div class="feedBox" v-for="feedItem in feedItems">
           <max-Feed-Box :url='feedItem' />
         </div>
       </main>
@@ -15,25 +15,27 @@
 
 <script>
   // import components here
-  import FeedBox from './components/FeedBox.vue';
+  import FeedBox        from './components/FeedBox.vue';
   import FeedSuggestion from './components/FeedSuggestion.vue';
-  import Footer from './components/Footer.vue';
-  import Nav from './components/Nav.vue';
-  import { mapActions } from 'vuex';
-  import { mapGetters } from 'vuex';
+  import Footer         from './components/Footer.vue';
+  import Nav            from './components/Nav.vue';
+  //import store          from './overvue/store';
+  import { commitFeedUrls } from './overvue/actions';
+  ///import { mapActions } from 'vuex';
+  ///import { mapGetters } from 'vuex';
 
 
   export default {
     data() {
       return {
-        feedItems: null,
+       feedItems: this.$store.state.feedItems,
       }
     },
     computed: {
-      ...mapGetters(['getFeedUrls', 'getRandomPoster']),
+
     },
     methods: {
-      ...mapActions(['commitFeedUrls','commitRandomPoster']),
+
     },
     components: {
       maxFeedBox: FeedBox,
@@ -42,16 +44,15 @@
       maxNav: Nav
     },
     beforeCreate: function () {
-      $.get('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json',
+      commitFeedUrls('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json');
+      /*$.get('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json',
         function (data, status) {
           if (status === 'success') {
-            //this.feedItems = data;
-            this.commitFeedUrls(data);
-            //console.log(this.feedItems);
+            commitFeedUrls(data);
           } else if (status === 'error') {
             $('#feedBox').append("<div class='feedItem borderedBox'>Cannot load feed</div>");
           }
-        }.bind(this));
+        }.bind(this));*/
     },
 
   }
