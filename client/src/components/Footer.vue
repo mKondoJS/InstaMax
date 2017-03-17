@@ -13,7 +13,7 @@
         <li><a href="#">DIRECTORY</a></li>
         <li><a href="#">LANGUAGE</a></li>
       </ul>
-      <span class="copyright">© 2017 INSTAGRAM</span>
+      <span class="copyright">© 2017 INSTAMAX</span>
     </div>
   </footer>
 </template>

@@ -124,7 +124,7 @@ jQuery(document).ready( function() {
         function(data, status){
             if (status === 'success') {
                 $(".loadingSpinner").hide();
-                data.forEach( function(img) {
+                data.forEach(function(img) {
                     // There's a bunch of broken links.  Only load up the good ones!
                     $.get(img, function(data, status) {
                         if(status === 'success') {
@@ -152,7 +152,6 @@ jQuery(document).ready( function() {
                         else {
                             console.log("Status: " + status);
                         }
-
                     });
                 });
             }
@@ -160,5 +159,4 @@ jQuery(document).ready( function() {
                 feedBox.append("<div class='feedItem borderedBox'>Cannot load feed</div>");
             }
         });
-
 });
