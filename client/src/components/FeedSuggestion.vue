@@ -23,8 +23,6 @@
 </template>
 <script>
 
-  //import store from './../overvue/store';
-
   export default {
     data() {
       return {
@@ -36,7 +34,7 @@
     },
     methods: {
       profilePic: function(user) {
-        return './client/src/assets/img/' + user + '.jpg';
+        return '/img/' + user + '.jpg';
       },
       toggleFollow: function(e) {
         let btn = $('#' + e.srcElement.id);

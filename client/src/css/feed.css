@@ -75,7 +75,7 @@
     left: 10px;
     height: 15px;
     width: 15px;
-    background-image: url(../assets/img/search.png);
+    background-image: url(/img/search.png);
 }
 
 nav {
@@ -247,7 +247,7 @@ a, a:hover, a:visited {
 }
 
 .likeThis {
-    background-image: url('../assets/img/favorite.png');
+    background-image: url('/img/favorite.png');
     background-repeat: no-repeat;
     height: 30px;
     width: 30px;
@@ -256,7 +256,7 @@ a, a:hover, a:visited {
 }
 
 .liked {
-    background-image: url('../assets/img/favoriteRed.png');
+    background-image: url('/img/favoriteRed.png');
 }
 
 .imgComments {
@@ -305,7 +305,7 @@ a, a:hover, a:visited {
     height: 38px;
     margin-top: 20px;
     width: 38px;
-    background-image: url('../assets/img/spinner.png');
+    background-image: url('/img/spinner.png');
     animation: spin8 .8s steps(8) infinite;
 }
 

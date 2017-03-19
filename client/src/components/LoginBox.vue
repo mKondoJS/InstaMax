@@ -6,7 +6,7 @@
       </section>
       <section id="loginSplash" class="splashBox">
         <div id="loginBox" class="borderedBox">
-          <div id="instaLogo"><img src="../assets/img/Instamax235x52.png"></div>
+          <div id="instaLogo"><img src="/img/Instamax235x52.png"></div>
           <form id="loginForm" action="feed.html" method="get">
             <input type="text" class="loginInput" id="user" v-on:focus="slideWarningUp" placeholder="Username">
             <div style="position: relative">
@@ -19,7 +19,7 @@
               <span class="miniHr"></span><span id="orText">OR</span><span class="miniHr"></span>
             </div>
             <button type="submit" id="fbLoginBtn" class="fbLogin">
-              <span id="fbLink"><img src="../assets/img/fbLink.png"></span>
+              <span id="fbLink"><img src="/img/fbLink.png"></span>
               <span id="fbLinkText">Log in with Facebook</span>
             </button>
             <input type="text" id="username" name="username" style="display:none">
@@ -30,8 +30,8 @@
           <div id="appBox">
             <p>Get the app.</p>
             <div id="appLinks">
-              <div class="appLink"><a href="#"><img src="../assets/img/appStore.png"></a></div>
-              <div class="appLink"><a href="#"><img src="../assets/img/googelPlay.png"></a></div>
+              <div class="appLink"><a href="#"><img src="/img/appStore.png"></a></div>
+              <div class="appLink"><a href="#"><img src="/img/googelPlay.png"></a></div>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
       startMobileImgLoop() {
         console.log('in startMobileImgLoop');
         // loop through images on mobile splash
-        const mIntervId = setInterval(this.loopMobileImg, 5000).bind(this);
+        const mIntervId = setInterval(this.loopMobileImg, 5000);
       },
       mobileImageCreator () {
         // Use closure to track image index through multiple calls
@@ -64,7 +64,7 @@
         console.log('in mobileImageCreator index:', index);
         return function () {
           index = index < 5 ? index + 1 : 1;
-          const img = './client/src/assets/img/mScreen' + index + '.png';
+          const img = '/img/mScreen' + index + '.png';
           $("#mobilePics").css('background-image' , 'url(' + img + ')');
         }
       },

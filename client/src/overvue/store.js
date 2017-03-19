@@ -8,7 +8,7 @@ export default store = new Store({
   state: {
     username: '',
     password: '',
-    feedUrls: null,
+    feedItems: null,
     users: {
       frodo: { fullName: 'Frodo Baggins', password: 'baggins' },
       samwise: { fullName: 'Samwise Gamgee', password: 'gamgee' },
