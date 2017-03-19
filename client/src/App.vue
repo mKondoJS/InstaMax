@@ -7,10 +7,10 @@
         <div class="feedBox" v-for="feedItem in feed">
           <max-Feed-Box :url='feedItem' />
         </div>
-        <div>
+<!--        <div>
           <button @click="getFeed">Feed</button>
-          {{ feed }}
-        </div>
+          {{ story }}
+        </div>-->
       </main>
       <max-Footer></max-Footer>
     </div>
@@ -32,7 +32,7 @@
   export default {
     data() {
       return {
-       feedItems: this.$store.state.feedItems,
+       store: this.$store.state,
       }
     },
     computed: {

@@ -55,7 +55,7 @@
     },
     computed: {
      posterImg: function() {
-        return './client/src/assets/img/' + this.poster + '.jpg';
+        return '/img/' + this.poster + '.jpg';
      },
      posterName: function() {
         return this.poster;
@@ -91,7 +91,7 @@
       postComment(e) {
         console.log('val',e.srcElement.value);
         if(e.srcElement.value.length) {
-          this.username = store.state.username;
+          this.username = this.$store.state.username;
           this.comments.push(e.srcElement.value);
           e.srcElement.value = '';
         }

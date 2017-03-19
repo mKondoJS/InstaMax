@@ -26,7 +26,7 @@ app.get('/instaData', instaController.getImages, (req, res) => {
   res.status(200).json(res.locals.images);
 });
 
-app.get('/feed.html', (req, res) => {
+app.post('/feed.html', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../feed.html'));
 });
 
