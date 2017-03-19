@@ -7,7 +7,7 @@
       <section id="loginSplash" class="splashBox">
         <div id="loginBox" class="borderedBox">
           <div id="instaLogo"><img src="/img/Instamax235x52.png"></div>
-          <form id="loginForm" action="feed.html" method="get">
+          <form id="loginForm" action="feed.html" method="post">
             <input type="text" class="loginInput" id="user" v-on:focus="slideWarningUp" placeholder="Username">
             <div style="position: relative">
               <input type="password" class="loginInput" v-on:focus="slideWarningUp" id="password" placeholder="Password">

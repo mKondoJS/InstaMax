@@ -5,7 +5,7 @@
                 <img :src='userImg'>
                 <span class="userName"> {{ username }} </span>
             </div>
-            <div id="instaLogo"><a href="index.html"><img src="/img/Instamax235x52.png"></a></div>
+            <div id="instaLogo"><a href="/"><img src="/img/Instamax235x52.png"></a></div>
             <div class="searchBox">
                 <input type="text" class="searchInput" id="search" name="search" placeholder="Search">
                 <div class="searchInputIcon"></div>
