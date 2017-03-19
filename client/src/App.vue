@@ -4,8 +4,12 @@
       <max-nav></max-nav>
       <main class="main">
         <max-Feed-Suggestion />
-        <div class="feedBox" v-for="feedItem in feedItems">
+        <div class="feedBox" v-for="feedItem in feed">
           <max-Feed-Box :url='feedItem' />
+        </div>
+        <div>
+          <button @click="getFeed">Feed</button>
+          {{ feed }}
         </div>
       </main>
       <max-Footer></max-Footer>
@@ -32,10 +36,16 @@
       }
     },
     computed: {
-
+      feed: function() {
+        console.log('computed feedItems');
+        return this.$store.state.feedItems;
+      }
     },
     methods: {
-
+      getFeed: function() {
+        console.log('getFeed', this.$store.state.feedItems);
+        return this.$store.state.feedItems;
+      },
     },
     components: {
       maxFeedBox: FeedBox,
@@ -44,17 +54,12 @@
       maxNav: Nav
     },
     beforeCreate: function () {
-      commitFeedUrls('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json');
-      /*$.get('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json',
-        function (data, status) {
-          if (status === 'success') {
-            commitFeedUrls(data);
-          } else if (status === 'error') {
-            $('#feedBox').append("<div class='feedItem borderedBox'>Cannot load feed</div>");
-          }
-        }.bind(this));*/
+      //commitFeedUrls('http://localhost:8080/InstaData');
     },
-
+    mounted: function() {
+      commitFeedUrls('http://localhost:8080/InstaData');
+      //this.getFeed();
+    }
   }
 </script>
 

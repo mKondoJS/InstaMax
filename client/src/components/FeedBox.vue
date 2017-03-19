@@ -29,7 +29,7 @@
         <div class='commentInputBox'>
             <div :id="_uid" class='likeThis notLiked' @click="likeHandler"></div>
             <input type='text' class='commentInput' id='newComment' maxlength='1000' @keyup.enter="postComment" placeholder='Add a comment...'>
-            <a href='#'><span class='reportMenu'><img src="../assets/img/elipse.png"></span></a>
+            <a href='#'><span class='reportMenu'><img src="/img/elipse.png"></span></a>
         </div>
     </div>
 </template>
