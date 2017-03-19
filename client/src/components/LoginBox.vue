@@ -79,7 +79,7 @@
           commitUsernameAndPassword({ username, password });
           $('#loginForm').submit();
         } else {
-          $('#loginText')[0].innerHTML = 'Something went wrong, try again';
+          $('#loginText')[0].innerHTML = 'That username/password combination is not valid.  Please try again.';
           $('#loginText').slideDown();
         }
       },

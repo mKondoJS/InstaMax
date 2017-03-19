@@ -12,6 +12,7 @@
     background-color: #fff;
     align-items: center;
     height: 77px;
+    box-shadow: 4px 4px 18px 0px rgba(50, 50, 50, 0.31);
 }
 
 .headerContainer {
@@ -65,14 +66,16 @@
     background-color: #fafafa;
     border: 1px solid lightgray;
     border-radius: 3px;
-    padding: 5px 0 5px 25px;
+    padding: 5px 15px 5px 30px;
     outline: none;
+    width: 150%;
+    left: -70px;
 }
 
 .searchInputIcon {
     position: absolute;
-    top: 15px;
-    left: 10px;
+    top: 20px;
+    left: -60px;
     height: 15px;
     width: 15px;
     background-image: url(/img/search.png);
@@ -93,6 +96,7 @@ nav img {
     max-width: 600px;
     width: 100%;
     color: #262626;
+    box-shadow: 4px 4px 18px 0px rgba(50, 50, 50, 0.31);
 }
 
 .suggestionContent a, .suggestionContent a:visited, .suggestionContent a:hover {
@@ -182,6 +186,7 @@ a, a:hover, a:visited {
     margin: 60px auto 30px;
     width: 100%;
     color: #262626;
+    box-shadow: 4px 4px 18px 0px rgba(50, 50, 50, 0.31);
 }
 
 .feedHeader {
