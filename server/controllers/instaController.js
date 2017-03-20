@@ -17,6 +17,7 @@ const instaController = {
       });
     });
   },
+
   getImages(req, res, next) {
     console.log('in getImages');
     InstaData.find({}, (error, response) => {
