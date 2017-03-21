@@ -26,6 +26,10 @@ app.get('/instaData', instaController.getImages, (req, res) => {
   res.status(200).json(res.locals.images);
 });
 
+app.get('/description', instaController.getPossibleWords, (req, res) => {
+  res.status(200).json(res.description);
+})
+
 app.post('/feed.html', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../feed.html'));
 });
