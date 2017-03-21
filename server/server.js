@@ -18,10 +18,6 @@ app.get('*.js', function (req, res) {
   res.sendFile(path.join(__dirname + './../dist/build.js'));
 });
 
-app.get('/', function (req, res) {
-  res.sendFile(path.resolve(__dirname, '../index.html'));
-});
-
 app.get('/instaData', instaController.getImages, (req, res) => {
   res.status(200).json(res.locals.images);
 });
@@ -30,12 +26,11 @@ app.get('/description', instaController.getPossibleWords, (req, res) => {
   res.status(200).json(res.description);
 })
 
-app.post('/feed.html', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../feed.html'));
-});
+// return index.html in all other cases in order to facilitate
+// vue router handling page transitions
+app.get('*', function (req, res) {
+  console.log('returning index.html')
+  res.sendFile(path.resolve(__dirname, '../index.html'));
 
-app.post('/instaData', instaController.addData, (req, res) => {
-  res.send(res.data);
-});
 
 app.listen(8080, () => console.log('The server is listening on port 8080'));
