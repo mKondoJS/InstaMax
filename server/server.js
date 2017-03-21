@@ -22,15 +22,15 @@ app.get('/instaData', instaController.getImages, (req, res) => {
   res.status(200).json(res.locals.images);
 });
 
+app.get('/description', instaController.getPossibleWords, (req, res) => {
+  res.status(200).json(res.description);
+})
+
 // return index.html in all other cases in order to facilitate
 // vue router handling page transitions
 app.get('*', function (req, res) {
   console.log('returning index.html')
   res.sendFile(path.resolve(__dirname, '../index.html'));
-});
 
-/*app.get('/feed.html', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../feed.html'));
-});*/
 
 app.listen(8080, () => console.log('The server is listening on port 8080'));
