@@ -2,7 +2,7 @@ const InstaData = require('./../models/instaModel');
 
 const instaController = {
   addData(req, res, next) {
-    console.log('in addData');
+    console.log('in addData', req.body);
     req.body.images.forEach(img => {
       console.log(img);
       InstaData.create({
@@ -18,7 +18,7 @@ const instaController = {
     });
   },
   getImages(req, res, next) {
-    console.log('in getImages');
+    console.log('in getImages!!');
     InstaData.find({}, (error, response) => {
       if (error) {
         res.status(500).send(error);
@@ -27,11 +27,20 @@ const instaController = {
       response.forEach(img => {
         urls.push('http://schnomozingo.com/img/lotr/' + img.url + '.jpg');
       });
-
       res.locals.images = urls;
       next();
     });
   },
+  // getImagesByDescription(req, res, next) {
+
+  // },
+  getPossibleWords(req, res, next) {
+    InstaData.find({description: {$regex: "^" + req.body}}, (error, response) => {
+      if (error) res.status(500).send(error);
+      res.locals.description = response;
+      next();
+    });
+  }
 };
 
 module.exports = instaController;
