@@ -10,17 +10,20 @@ export const commitFeedUrls = store.actionCreator((urls) => {
   fetch(urls)
     .then((response) => {
       if (response.status === 200) {
-        response.json()
-          .then((data) => {
-          console.log('response', data);
-          commitFeedUrls2(
-            {
-              type: 'SET_FEED_URLS',
-              payload: data,
-            }
-          );
-        });
+        // .json() also returns a promise,
+        // which we'll handle in the next .then
+        return response.json();
       }
+    })
+    .then((data) => {
+      console.log('response', data);
+
+      // dispatch an action into the motherStream$
+      commitFeedUrls2(
+        {
+          type: 'SET_FEED_URLS',
+          payload: data,
+        });
     })
     .catch((error) => {
       console.error('Error fetching', error);
