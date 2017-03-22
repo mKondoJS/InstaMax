@@ -44,8 +44,7 @@ const instaController = {
     });
   },
   getPossibleWords(req, res, next) {
-    console.log('in get possi words', req.body);
-    InstaData.distinct('description', { description: { $regex: "^" + req.body.search }}, (error, response) => {
+    InstaData.distinct('description', { description: { $regex: "^" + req.body.search } }, (error, response) => {
       if (error) res.status(500).send(error);
       res.locals.description = response;
       next();
