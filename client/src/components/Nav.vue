@@ -7,9 +7,9 @@
             </div>
             <div id="instaLogo"><a href="/"><img src="/img/Instamax235x52.png"></a></div>
             <div class="searchBox">
-                <input type="text" list="lotr" class="searchInput" id="search" name="search" placeholder="Search" v-model="searchField">
+                <input @keyup.enter="filterFeed" type="text" list="lotr" class="searchInput" id="search" name="search" placeholder="Search" v-model="searchField">
                 <datalist id="lotr" v-if="results">
-                  <option v-for="match in results.matches">{{ match.description }}</option>
+                  <option @click="filterFeed" v-for="match in results.matches">{{ match.description }}</option>
                 </datalist>
                 <div class="searchInputIcon"></div>
             </div>
@@ -26,6 +26,7 @@
   import Vue from 'vue';
   import Rx from 'rxjs/Rx';
   import VueRx from 'vue-rx';
+  import { commitFeedUrls } from '../overvue/actions';
 
   Vue.use(VueRx, Rx);
 
@@ -78,6 +79,11 @@
           return '/img/' + this.$store.state.username + '.jpg';
         }
         return '/img/profile.png';
+      },
+    },
+    methods: {
+      filterFeed() {
+        commitFeedUrls('http://localhost:8080/InstaData/:description');
       },
     },
   };
