@@ -8,22 +8,14 @@
 </template>
 
 <script>
-  // import components here
 
   import Footer from './components/Footer.vue';
   import LoginBox from './components/LoginBox.vue';
 
   export default {
-    computed: {
-
-    },
-    methods: {
-
-    },
     components: {
       maxFooter: Footer,
-      maxLoginBox: LoginBox
-    }
-  }
+      maxLoginBox: LoginBox,
+    },
+  };
 </script>
-

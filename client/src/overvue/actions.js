@@ -1,12 +1,7 @@
-import store from './store';
 import { Observable } from 'rxjs/Rx';
-// import { filter } from 'lodash';
-
-console.log(store);
+import store from './store';
 
 export const commitFeedUrls = store.actionCreator((urls) => {
-  console.log('in commitFeedUrls', typeof urls, urls);
-
   fetch(urls)
     .then((response) => {
       if (response.status === 200) {
@@ -17,7 +12,6 @@ export const commitFeedUrls = store.actionCreator((urls) => {
     })
     .then((data) => {
       console.log('response', data);
-
       // dispatch an action into the motherStream$
       commitFeedUrls2(
         {
@@ -30,12 +24,12 @@ export const commitFeedUrls = store.actionCreator((urls) => {
     });
 });
 
-export const commitUsernameAndPassword = store.actionCreator((payload) => ({
+export const commitUsernameAndPassword = store.actionCreator(payload => ({
   type: 'SET_USER_PASSWORD',
   payload,
 }));
 
-export const commitFeedUrls2 = store.actionCreator((data) => ({
+export const commitFeedUrls2 = store.actionCreator(data => ({
   type: 'SET_FEED_URLS',
   payload: data.payload,
 }));

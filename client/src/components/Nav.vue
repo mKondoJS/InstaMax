@@ -7,24 +7,11 @@
             </div>
             <div id="instaLogo"><a href="/"><img src="/img/Instamax235x52.png"></a></div>
             <div class="searchBox">
-                <input type="text" class="searchInput" id="search" name="search" placeholder="Search" v-model="search" v-if="results">
-                <div class="searchInputIcon"></div>
-                   <!--<div v-if="results">-->
-                      <!--<h1>{{ results.term }}</h1>-->
-                      <!--<ul v-if="results.matches.length">-->
-                          <!--<li v-for="match in results.matches">
-                              <a :href="match.url">{{ match.title }}</a>
-                              <p>{{ match.description }}</p>
-                          </li>-->
-                      <!--</ul>-->
-                      <!--<p v-else>
-                          No matches found.
-                      </p>-->
-                  <!--</div>-->
-                <datalist id="matches" v-if="results.matches.length">
-
-                  <option value="" v-for="match in results.matches">{{ match.title }}</option>
+                <input type="text" list="lotr" class="searchInput" id="search" name="search" placeholder="Search" v-model="searchField">
+                <datalist id="lotr" v-if="results">
+                  <option v-for="match in results.matches">{{ match.description }}</option>
                 </datalist>
+                <div class="searchInputIcon"></div>
             </div>
             <nav class="navbar">
                 <a href="#"><img src="/img/navigate30x30.png"></a>
@@ -36,55 +23,50 @@
 </template>
 <script>
 
-  // import store from '../overvue/store';
-import Vue from 'vue';
-import Rx from 'rxjs/Rx';
-import VueRx from 'vue-rx';
+  import Vue from 'vue';
+  import Rx from 'rxjs/Rx';
+  import VueRx from 'vue-rx';
 
-// import vmApp from '../main';
-Vue.use(VueRx, Rx);
+  Vue.use(VueRx, Rx);
 
-function fetchTerm(term) {
+  function queryDatabase(char) {
     return Rx.Observable.fromPromise($.ajax({
-      url: 'http://en.wikipedia.org/w/api.php',
-      dataType: 'jsonp',
+      method: 'POST',
+      url: 'http://localhost:8080/description',
+      dataType: 'json',
       data: {
         action: 'opensearch',
         format: 'json',
-        search: term,
+        search: char,
       },
     }).promise());
-}
-function formatResult(res) {
+  }
+  function displayOptions(res) {
     return {
-    // term: res[0],
-      matches: res.map((description, i) => {
-        console.log('db description', description);
-        return description;
-      // description: res[2][i],
-      // url: res[3][i],
-      }),
+      matches: res.map(description => ({
+        description,
+      })),
     };
-}
+  }
 
 
   export default {
     data() {
       return {
         username: this.$store.state.username,
-        search: '',
+        searchField: '',
       };
     },
     subscriptions() {
       return {
       // this is the example in RxJS's readme.
-        results: this.$watchAsObservable('search')
+        results: this.$watchAsObservable('searchField')
         .pluck('newValue')
-        .filter(text => text.length > 2)
+        .filter(text => text.length > 1)
         .debounceTime(500)
         .distinctUntilChanged()
-        .switchMap(fetchTerm)
-        .map(formatResult),
+        .switchMap(queryDatabase)
+        .map(displayOptions),
       };
     },
     computed: {
@@ -95,7 +77,7 @@ function formatResult(res) {
         if (this.username) {
           return '/img/' + this.$store.state.username + '.jpg';
         }
-          return '/img/profile.png';
+        return '/img/profile.png';
       },
     },
   };

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Feed from './Feed.vue';
 import Login from './Login.vue';
 import Container from './Container.vue';
-
+import store from './overvue/store';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
@@ -17,16 +17,7 @@ const router = new VueRouter({
   mode: 'history',
 });
 
-import store from './overvue/store';
 store.createStateStream().subscribe(state => console.log('Initial State', state));
-
-/*
-const vmApp = new Vue({
-  el: '#app',
-  store,
-  render: h => h(Feed),
-});
-*/
 
 const app = new Vue({
   el: '#App',
