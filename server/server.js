@@ -20,7 +20,7 @@ app.get('/instaData', instaController.getImages, (req, res) => {
   res.status(200).json(res.locals.images);
 });
 
-app.get('/instaData/:description', instaController.getImages, (req, res) => {
+app.get('/instaData/:description', instaController.getImagesByDescription, (req, res) => {
   res.status(200).json(res.locals.images);
 });
 

@@ -25,7 +25,7 @@ const instaController = {
         res.status(500).send(error);
       }
       const urls = [];
-      response.forEach(img => {
+      response.forEach((img) => {
         urls.push('http://schnomozingo.com/img/lotr/' + img.url + '.jpg');
       });
       res.locals.images = urls;
@@ -33,10 +33,10 @@ const instaController = {
     });
   },
   getImagesByDescription(req, res, next) {
-    InstaData.find({description: req.params}, (error, response) => {
+    InstaData.find({ description: req.params.description }, (error, response) => {
       if (error) res.status(500).send(error);
       const urls = [];
-      response.forEach(img => {
+      response.forEach((img) => {
         urls.push('http://schnomozingo.com/img/lotr/' + img.url + '.jpg');
       });
       res.locals.images = urls;
