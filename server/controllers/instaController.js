@@ -25,16 +25,24 @@ const instaController = {
         res.status(500).send(error);
       }
       const urls = [];
-      response.forEach((img) => {
+      response.forEach(img => {
         urls.push('http://schnomozingo.com/img/lotr/' + img.url + '.jpg');
       });
       res.locals.images = urls;
       next();
     });
   },
-  // getImagesByDescription(req, res, next) {
-
-  // },
+  getImagesByDescription(req, res, next) {
+    InstaData.find({description: req.params}, (error, response) => {
+      if (error) res.status(500).send(error);
+      const urls = [];
+      response.forEach(img => {
+        urls.push('http://schnomozingo.com/img/lotr/' + img.url + '.jpg');
+      });
+      res.locals.images = urls;
+      next();
+    });
+  },
   getPossibleWords(req, res, next) {
     InstaData.distinct('description', { description: { $regex: "^" + req.body.search } }, (error, response) => {
       if (error) res.status(500).send(error);
