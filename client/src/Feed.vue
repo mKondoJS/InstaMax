@@ -1,15 +1,13 @@
 <template>
-  <div class="flex-wrapper">
-    <div class="container">
-      <max-nav></max-nav>
-      <main class="main">
-        <max-Feed-Suggestion />
-        <div class="feedBox" v-for="feedItem in feed">
-          <max-Feed-Box :url='feedItem' />
-        </div>
-      </main>
-      <max-Footer></max-Footer>
-    </div>
+  <div class="container">
+    <max-nav></max-nav>
+    <main class="main">
+      <max-Feed-Suggestion />
+      <div class="feedBox" v-for="feedItem in feed">
+        <max-Feed-Box :url='feedItem' />
+      </div>
+    </main>
+    <max-Footer></max-Footer>
   </div>
 </template>
 

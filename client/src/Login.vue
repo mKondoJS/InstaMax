@@ -1,11 +1,9 @@
 <template>
-  <div class="flex-wrapper">
-    <div class="container">
-      <main class="main">
-        <max-Login-Box></max-Login-Box>
-        <max-Footer></max-Footer>
-      </main>
-    </div>
+  <div class="container">
+    <main>
+      <max-Login-Box></max-Login-Box>
+      <max-Footer></max-Footer>
+    </main>
   </div>
 </template>
 
