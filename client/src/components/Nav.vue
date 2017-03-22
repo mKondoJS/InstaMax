@@ -82,8 +82,8 @@
       },
     },
     methods: {
-      filterFeed() {
-        commitFeedUrls('http://localhost:8080/InstaData/:description');
+      filterFeed(e) {
+        commitFeedUrls('http://localhost:8080/InstaData/' + e.srcElement.value);
       },
     },
   };
