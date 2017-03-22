@@ -40,29 +40,29 @@
  // import store from '../overvue/store';
 
   export default {
-    data () {
+    data() {
       return {
-        //username: this.$store.state.username,
+        // username: this.$store.state.username,
         feedImg: '',
         likes: this.getRandom(1, 100),
-        timer: this.getRandom(1,23),
+        timer: this.getRandom(1, 23),
         poster: this.getPoster(),
         comments: [],
-      }
+      };
     },
     props: {
       url: String,
     },
     computed: {
-     posterImg: function() {
+      posterImg() {
         return '/img/' + this.poster + '.jpg';
-     },
-     posterName: function() {
+      },
+      posterName() {
         return this.poster;
-     },
-     username: function() {
-       return this.$store.state.username;
-     }
+      },
+      username() {
+        return this.$store.state.username;
+      },
     },
     methods: {
       getRandom(min, max) {
@@ -71,12 +71,11 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
       },
       likeHandler(e) {
-        if( e.srcElement.classList.contains('liked')) {
+        if ( e.srcElement.classList.contains('liked')) {
           this.likes--;
         } else {
           this.likes++;
         }
-
         $('#' + e.target.id).toggleClass('liked');
       },
       getPoster() {
@@ -86,18 +85,18 @@
           'Grey_Wanderer',
           'elfonashelf',
           'OneDoesNotSimply',
-        ][Math.floor(Math.random() * 4)]
+        ][Math.floor(Math.random() * 4)];
       },
       postComment(e) {
-        console.log('val',e.srcElement.value);
-        if(e.srcElement.value.length) {
+        console.log('val', e.srcElement.value);
+        if (e.srcElement.value.length) {
           this.username = this.$store.state.username;
           this.comments.push(e.srcElement.value);
           e.srcElement.value = '';
         }
-      }
+      },
     },
-  }
+  };
 
 </script>
 

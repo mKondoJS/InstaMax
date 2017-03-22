@@ -42,15 +42,13 @@
 
 <script>
 
-  //import store from '../overvue/store';
-  //import mutate from '../overvue/mutate';
   import { commitUsernameAndPassword } from '../overvue/actions';
 
   export default {
     data() {
       return {
-       loopMobileImg: this.mobileImageCreator()
-      }
+        loopMobileImg: this.mobileImageCreator(),
+      };
     },
     methods: {
       startMobileImgLoop() {
@@ -58,7 +56,7 @@
         // loop through images on mobile splash
         const mIntervId = setInterval(this.loopMobileImg, 5000);
       },
-      mobileImageCreator () {
+      mobileImageCreator() {
         // Use closure to track image index through multiple calls
         let index = 1;
         console.log('in mobileImageCreator index:', index);
@@ -66,15 +64,15 @@
           index = index < 5 ? index + 1 : 1;
           const img = '/img/mScreen' + index + '.png';
           $("#mobilePics").css('background-image' , 'url(' + img + ')');
-        }
+        };
       },
-      slideWarningUp: function() {
+      slideWarningUp() {
         $('#loginText').slideUp();
       },
-      validateUser: function(event) {
+      validateUser(event) {
         event.preventDefault();
-        let username = $('#user').val();
-        let password = $('#password').val();
+        const username = $('#user').val();
+        const password = $('#password').val();
         if (this.$store.state.users.hasOwnProperty(username) && this.$store.state.users[username].password === password) {
           commitUsernameAndPassword({ username, password });
           $('#loginForm').submit();
@@ -89,10 +87,9 @@
     mounted() {
       console.log('In mounted');
       this.startMobileImgLoop();
-    }
-  }
+    },
+  };
 </script>
 
 <style>
 </style>
-

@@ -7,10 +7,6 @@
         <div class="feedBox" v-for="feedItem in feed">
           <max-Feed-Box :url='feedItem' />
         </div>
-<!--        <div>
-          <button @click="getFeed">Feed</button>
-          {{ story }}
-        </div>-->
       </main>
       <max-Footer></max-Footer>
     </div>
@@ -23,37 +19,31 @@
   import FeedSuggestion from './components/FeedSuggestion.vue';
   import Footer         from './components/Footer.vue';
   import Nav            from './components/Nav.vue';
-  //import store          from './overvue/store';
   import { commitFeedUrls } from './overvue/actions';
-  ///import { mapActions } from 'vuex';
-  ///import { mapGetters } from 'vuex';
-
 
   export default {
     data() {
       return {
-       store: this.$store.state,
-      }
+        store: this.$store.state,
+      };
     },
     computed: {
-      feed: function() {
+      feed() {
         console.log('computed feedItems');
-
         return this.shuffle(this.$store.state.feedItems);
-      }
+      },
     },
     methods: {
-      getFeed: function() {
+      getFeed() {
         console.log('getFeed', this.$store.state.feedItems);
         return this.$store.state.feedItems;
       },
-      shuffle: function (array) {
-        if(!array) return [];
+      shuffle(array) {
+        if (!array) return [];
         let currentIndex = array.length, temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-
+        while (currentIndex !== 0) {
           // Pick a remaining element...
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex -= 1;
@@ -63,7 +53,6 @@
           array[currentIndex] = array[randomIndex];
           array[randomIndex] = temporaryValue;
         }
-
         return array;
       },
     },
@@ -71,15 +60,13 @@
       maxFeedBox: FeedBox,
       maxFeedSuggestion: FeedSuggestion,
       maxFooter: Footer,
-      maxNav: Nav
+      maxNav: Nav,
     },
-    beforeCreate: function () {
-      //commitFeedUrls('http://localhost:8080/InstaData');
+    beforeCreate() {
+      // commitFeedUrls('http://localhost:8080/InstaData');
     },
-    mounted: function() {
+    mounted() {
       commitFeedUrls('http://localhost:8080/InstaData');
-      //this.getFeed();
-    }
-  }
+    },
+  };
 </script>
-

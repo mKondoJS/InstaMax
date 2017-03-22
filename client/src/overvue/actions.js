@@ -1,6 +1,5 @@
-import store from './store';
 import { Observable } from 'rxjs/Rx';
-// import { filter } from 'lodash';
+import store from './store';
 
 console.log(store);
 
@@ -13,13 +12,13 @@ export const commitFeedUrls = store.actionCreator((urls) => {
         response.json()
           .then((data) => {
           console.log('response', data);
-          commitFeedUrls2(
-            {
-              type: 'SET_FEED_URLS',
-              payload: data,
-            }
-          );
-        });
+            commitFeedUrls2(
+              {
+                type: 'SET_FEED_URLS',
+                payload: data,
+              },
+            );
+          });
       }
     })
     .catch((error) => {
@@ -27,12 +26,12 @@ export const commitFeedUrls = store.actionCreator((urls) => {
     });
 });
 
-export const commitUsernameAndPassword = store.actionCreator((payload) => ({
+export const commitUsernameAndPassword = store.actionCreator(payload => ({
   type: 'SET_USER_PASSWORD',
   payload,
 }));
 
-export const commitFeedUrls2 = store.actionCreator((data) => ({
+export const commitFeedUrls2 = store.actionCreator(data => ({
   type: 'SET_FEED_URLS',
   payload: data.payload,
 }));
