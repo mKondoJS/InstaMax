@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const instaSchema = new Schema({
-  description: String,
+  description: [String],
   url: String,
 });
 
