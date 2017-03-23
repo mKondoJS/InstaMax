@@ -7,9 +7,9 @@
             </div>
             <div id="instaLogo"><a href="/"><img src="/img/Instamax235x52.png"></a></div>
             <div class="searchBox">
-                <input @keyup.enter="filterFeed" type="text" list="lotr" class="searchInput" id="search" name="search" placeholder="Search" v-model="searchField">
+                <input @change="filterFeed" @keyup.enter="filterFeed" type="text" list="lotr" class="searchInput" id="search" name="search" placeholder="Search" v-model="searchField">
                 <datalist id="lotr" v-if="results">
-                  <option @click="filterFeed" v-for="match in results.matches">{{ match.description }}</option>
+                  <option v-for="match in results.matches">{{ match.description }}</option>
                 </datalist>
                 <div class="searchInputIcon"></div>
             </div>
@@ -83,6 +83,7 @@
     },
     methods: {
       filterFeed(e) {
+        console.log('FIRE NOW', e);
         commitFeedUrls('http://localhost:8080/InstaData/' + e.srcElement.value);
       },
     },

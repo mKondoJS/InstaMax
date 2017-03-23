@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Rx';
 import store from './store';
 
-export const commitFeedUrls = store.actionCreator((urls) => {
+export const commitFeedUrls = store.dispatchAction((urls) => {
   fetch(urls)
     .then((response) => {
       if (response.status === 200) {
@@ -24,12 +24,12 @@ export const commitFeedUrls = store.actionCreator((urls) => {
     });
 });
 
-export const commitUsernameAndPassword = store.actionCreator(payload => ({
+export const commitUsernameAndPassword = store.dispatchAction(payload => ({
   type: 'SET_USER_PASSWORD',
   payload,
 }));
 
-export const commitFeedUrls2 = store.actionCreator(data => ({
+export const commitFeedUrls2 = store.dispatchAction(data => ({
   type: 'SET_FEED_URLS',
   payload: data.payload,
 }));
