@@ -3,3 +3,4 @@ node_modules
 client/npm-debug.log
 dist
 yarn.lock
+npm-debug.log
