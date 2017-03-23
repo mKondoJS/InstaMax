@@ -16,6 +16,10 @@ app.get('*.js', (req, res) => {
   res.sendFile(path.join(__dirname, './../dist/build.js'));
 });
 
+app.post('/instaData', instaController.addData, (req, res) => {
+  res.status(200).json(res);
+})
+
 app.get('/instaData', instaController.getImages, (req, res) => {
   res.status(200).json(res.locals.images);
 });

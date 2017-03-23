@@ -2,24 +2,19 @@ const InstaData = require('./../models/instaModel');
 
 const instaController = {
   addData(req, res, next) {
-    console.log('in addData', req.body);
     req.body.images.forEach((img) => {
-      console.log(img);
       InstaData.create({
         description: img.description,
         url: img.url,
       }).then((insta) => {
-        console.log('saved to db', insta);
         return next();
       }).catch((error) => {
-        console.log('failed saved to db', error);
         res.status(500).send(error);
       });
     });
   },
 
   getImages(req, res, next) {
-    console.log('in getImages!!');
     InstaData.find({}, (error, response) => {
       if (error) {
         res.status(500).send(error);
