@@ -3,7 +3,7 @@ const InstaData = require('./../models/instaModel');
 const instaController = {
   addData(req, res, next) {
     req.body.images.forEach((img) => {
-      InstaData.create({
+      InstaData.insertMany({
         description: img.description,
         url: img.url,
       }).then((insta) => {
