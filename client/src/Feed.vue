@@ -3,8 +3,8 @@
     <max-nav></max-nav>
     <main class="main">
       <max-Feed-Suggestion />
-      <div class="feedBox" v-for="feedItem in feed">
-        <max-Feed-Box :url='feedItem' />
+      <div class="feedBox">
+          <max-Feed-Box :url='feedItem' v-for="feedItem in feed"/>
       </div>
     </main>
     <max-Footer></max-Footer>
@@ -28,6 +28,7 @@
     computed: {
       feed() {
         console.log('computed feedItems');
+        console.log('FB height', $('.feedbox'), 'Window height', $('window').height());
         return this.shuffle(this.$store.state.feedItems);
       },
     },
