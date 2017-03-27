@@ -1,9 +1,9 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
 import Feed from './Feed.vue';
 import Login from './Login.vue';
 import Container from './Container.vue';
 import store from './overvue/store';
-import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 

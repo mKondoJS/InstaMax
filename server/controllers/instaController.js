@@ -6,9 +6,7 @@ const instaController = {
       InstaData.insertMany({
         description: img.description,
         url: img.url,
-      }).then((insta) => {
-        return next();
-      }).catch((error) => {
+      }).then((insta) => next()).catch((error) => {
         res.status(500).send(error);
       });
     });
