@@ -63,7 +63,7 @@
         return function () {
           index = index < 5 ? index + 1 : 1;
           const img = '/img/mScreen' + index + '.png';
-          $("#mobilePics").css('background-image' , 'url(' + img + ')');
+          $("#mobilePics").css('background-image', 'url(' + img + ')');
         };
       },
       slideWarningUp() {
