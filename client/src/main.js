@@ -4,6 +4,8 @@ import Feed from './Feed.vue';
 import Login from './Login.vue';
 import Container from './Container.vue';
 import store from './overvue/store';
+import mutate from './overvue/mutate';
+
 
 Vue.use(VueRouter);
 
@@ -17,7 +19,7 @@ const router = new VueRouter({
   mode: 'history',
 });
 
-store.createStateStream().subscribe(state => console.log('Initial State', state));
+store.createStateStream(mutate).subscribe(state => console.log('Initial State', state));
 
 const app = new Vue({
   el: '#App',
