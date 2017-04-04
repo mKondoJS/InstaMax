@@ -26,7 +26,7 @@
   import Vue from 'vue';
   import Rx from 'rxjs/Rx';
   import VueRx from 'vue-rx';
-  import { commitFeedUrls } from '../overvue/actions';
+  import { commitFeedUrls } from '../store/actions';
 
   Vue.use(VueRx, Rx);
 
@@ -60,7 +60,6 @@
     },
     subscriptions() {
       return {
-      // this is the example in RxJS's readme.
         results: this.$watchAsObservable('searchField')
         .pluck('newValue')
         .filter(text => text.length > 1)

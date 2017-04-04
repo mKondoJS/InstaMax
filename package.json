@@ -24,6 +24,8 @@
     "express": "^4.15.2",
     "lodash": "^4.17.4",
     "mongoose": "^4.9.0",
+    "overvue-rx": "^1.0.12",
+    "overvuerx": "^1.0.9",
     "rxjs": "^5.2.0",
     "rxjs-es": "^5.0.0-beta.12",
     "vue": "^2.2.1",
