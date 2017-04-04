@@ -37,12 +37,11 @@
 
 <script>
 
- // import store from '../overvue/store';
+  $('.feedItem').on('click',(e) => { console.log('click',e) });
 
   export default {
     data() {
       return {
-        // username: this.$store.state.username,
         feedImg: '',
         likes: this.getRandom(1, 100),
         timer: this.getRandom(1, 23),

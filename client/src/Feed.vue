@@ -17,7 +17,7 @@
   import FeedSuggestion from './components/FeedSuggestion.vue';
   import Footer         from './components/Footer.vue';
   import Nav            from './components/Nav.vue';
-  import { commitFeedUrls } from './overvue/actions';
+  import { commitFeedUrls } from './store/actions';
 
   export default {
     data() {
@@ -60,9 +60,6 @@
       maxFeedSuggestion: FeedSuggestion,
       maxFooter: Footer,
       maxNav: Nav,
-    },
-    beforeCreate() {
-      // commitFeedUrls('http://localhost:8080/InstaData');
     },
     mounted() {
       commitFeedUrls('http://localhost:8080/InstaData');
