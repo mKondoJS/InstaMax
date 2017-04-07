@@ -54,7 +54,7 @@
       startMobileImgLoop() {
         console.log('in startMobileImgLoop');
         // loop through images on mobile splash
-        const mIntervId = setInterval(this.loopMobileImg, 5000);
+        const mIntervId = setInterval(this.loopMobileImg, 2000);
       },
       mobileImageCreator() {
         // Use closure to track image index through multiple calls
@@ -73,6 +73,7 @@
         event.preventDefault();
         const username = $('#user').val();
         const password = $('#password').val();
+        console.log('VUE', this);
         if (this.$store.state.users.hasOwnProperty(username) && this.$store.state.users[username].password === password) {
           commitUsernameAndPassword({ username, password });
           console.log('pushing to feed');
