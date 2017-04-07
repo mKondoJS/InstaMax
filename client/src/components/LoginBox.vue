@@ -6,7 +6,7 @@
       </section>
       <section id="loginSplash" class="splashBox">
         <div id="loginBox" class="borderedBox">
-          <div id="instaLogo"><img src="/img/Instamax235x52.png"></div>
+          <div id="instaLoginLogo"><img src="/img/Instamax235x52.png"></div>
           <form id="loginForm" action="feed.html" method="post">
             <input type="text" class="loginInput" id="user" v-on:focus="slideWarningUp" placeholder="Username">
             <div style="position: relative">
@@ -42,7 +42,7 @@
 
 <script>
 
-  import { commitUsernameAndPassword } from '../overvue/actions';
+  import { commitUsernameAndPassword } from '../store/actions';
 
   export default {
     data() {
@@ -73,22 +73,19 @@
         event.preventDefault();
         const username = $('#user').val();
         const password = $('#password').val();
-        console.log('VUE', this);
+        // check the store to see if we have a matching username/password
         if (this.$store.state.users.hasOwnProperty(username) && this.$store.state.users[username].password === password) {
+          // update the store with the current username and password
           commitUsernameAndPassword({ username, password });
-          console.log('pushing to feed');
+          // then route to the feed page
           this.$router.push('feed');
-          //$('#loginForm').submit();
         } else {
           $('#loginText')[0].innerHTML = 'That username/password combination is not valid.  Please try again.';
           $('#loginText').slideDown();
         }
       },
     },
-    computed: {
-    },
     mounted() {
-      console.log('In mounted');
       this.startMobileImgLoop();
     },
   };
