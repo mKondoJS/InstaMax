@@ -18,6 +18,7 @@ const router = new VueRouter({
   mode: 'history',
 });
 
+// create the motherStream!
 store.createStateStream(mutate).subscribe(state => console.log('Initial State', state));
 
 console.log('store', store);
